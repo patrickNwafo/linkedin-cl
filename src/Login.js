@@ -12,6 +12,10 @@ function Login() {
     const [profilePic, setProfilePic] = useState("");
     const dispatch = useDispatch();
 
+    const loginToApp = (e) => {
+        e.preventDefault();
+    }
+
     const register = () => {
         if (!name) {
             return alert("Please enter a full name!")
@@ -28,14 +32,13 @@ function Login() {
                         uid: userAuth.user.uid,
                         displayName: name,
                         photoURL: profilePic,
-                    }))
-                })
+                    })
+                    );
+                });
         }).catch((error) => alert(error));
     };
 
-    const loginToApp = (e) => {
-        e.preventDefault();
-    }
+
     return (
         <div className="login">
             <img src="https://images.unsplash.com/photo-1585288766827-c62e98d70191?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bGlua2VkaW58ZW58MHx8MHx8fDA%3D" alt="linkdin" />
@@ -54,8 +57,10 @@ function Login() {
 
                 <input
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)} type="email"
+                    onChange={(e) => setEmail(e.target.value)} 
+                    type="email"
                     placeholder="Email"
+
                 />
 
                 <input
