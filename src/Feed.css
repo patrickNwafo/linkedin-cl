@@ -34,7 +34,7 @@
 }
 
 .feed__input > form > button {
-    display: hidden;
+    display: none;
 }
 
 .feed__inputOptions {
